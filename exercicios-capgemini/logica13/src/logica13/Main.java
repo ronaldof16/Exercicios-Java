@@ -14,7 +14,7 @@ public class Main {
 		if(x > 10) {
 			System.out.println( "O número digitado é maior que 10!");
 		} else {
-			System.out.println("O número digitado é menor que 10");
+			System.out.println("O número digitado é menor que 10!");
 		}
 		
 		scan.close();
