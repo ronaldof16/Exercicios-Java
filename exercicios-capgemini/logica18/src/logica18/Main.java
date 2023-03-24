@@ -10,7 +10,7 @@ public class Main {
 		
 		
 		
-		for(int i = 0; i < 2; i++) {
+		for(int i = 0; i < 75; i++) {
 			
 			System.out.print("Digite o nome da pessoa: ");
 			String nome = scan.nextLine();
