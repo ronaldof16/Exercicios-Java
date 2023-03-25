@@ -42,7 +42,7 @@ public class Main {
 			
 		}
 		
-		System.out.println("A quantidade de carros até o ano 2000 é " + carrosAte2000 + " e o o total de carroe é " + totalCarros);
+		System.out.println("A quantidade de carros até o ano 2000 é " + carrosAte2000 + " e o o total de carros é " + totalCarros);
 		
 		scan.close();
 	}
