@@ -10,50 +10,47 @@ public class Main {
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
 		
-		float totalDesconto = 0;
-		float totalPago = 0;
-		System.out.print("Digite o preço do veículo: ");
-		float preco = scan.nextFloat();
+		String nomeFuncionario;
+		float salario;
+		float salarioMinimo;
+		float aumentoFolha = 0;
 		
+		System.out.print("Digite o valor do salário mínimo: ");
+		salarioMinimo = scan.nextFloat();
 		
-		while(preco != 0) {
+		scan.nextLine();
+		
+		for(int i = 0; i < 584; i++) {
 			
-			char combustivel;
-			float desconto = 0;
+			float reajuste;
+			float salarioReajustado;
 			
-			System.out.print("Digite o combustível do ceículo: G - gasolina / D - diesel / A - álcool: ");
-			combustivel = scan.next().charAt(0);
+			System.out.print("Digite o nome do funcionário: ");
+			nomeFuncionario = scan.nextLine();
+			System.out.print("Digite seu salário: ");
+			salario = scan.nextFloat();
 			
-			if(combustivel == 'G') {
-				desconto = preco * (21 / 100.0f);
-				preco = preco - desconto;
-				System.out.println("Valor do desconto: " + String.format("%.2f", desconto));
-				System.out.println("Preço final do veículo: " + String.format("%.2f", preco));
-			} else if(combustivel == 'A') {
-				desconto = preco * (25 / 100.0f);
-				preco = preco - desconto;
-				System.out.println("Valor do desconto: " + String.format("%.2f", desconto));
-				System.out.println("Preço final do veículo: " + String.format("%.2f", preco));
-			} else if(combustivel == 'D') {
-				desconto = preco * (14 / 100.0f);
-				preco = preco - desconto;
-				System.out.println("Valor do desconto: " + String.format("%.2f", desconto));
-				System.out.println("Preço final do veículo: " + String.format("%.2f", preco));
+			if(salario < (3 * salarioMinimo)) {
+				reajuste = salario * (50 / 100.0f);
+			} else if(salario >= (3 * salarioMinimo) && salario <= (10 * salarioMinimo)) {
+				reajuste = salario * (20 / 100.0f);
+			} else if(salario > (10 * salarioMinimo) && salario <= (20 * salarioMinimo)) {
+				reajuste = salario * (15 / 100.0f);
 			} else {
-				System.out.println("Tipo de combustível inválido!");
+				reajuste = salario * (10 / 100.0f);
 			}
 			
-			totalDesconto = totalDesconto + desconto;
-			totalPago  = totalPago + preco;
+			salarioReajustado = salario + reajuste;
+			aumentoFolha = aumentoFolha + reajuste;
 			
+			System.out.println("Nome do funcionário: " + nomeFuncionario);
+			System.out.println("Valor do reajuste: R$ " + String.format("%.2f", reajuste));
+			System.out.println("Novo salário: R$ " + String.format("%.2f", salarioReajustado));
 			
-			System.out.print("Digite o preço do veículo: ");
-			preco = scan.nextFloat();
-			
+			scan.nextLine();
 		}
 		
-		System.out.println("Total de  descontos: " + String.format("%.2f", totalDesconto));
-		System.out.println("Total pago pelos clientes: " + String.format("%.2f", totalPago));
+		System.out.println("A empresa vai aumentar sua folha de pagamento em: R$ " + aumentoFolha + " reais!");
 		
 		scan.close();
 
