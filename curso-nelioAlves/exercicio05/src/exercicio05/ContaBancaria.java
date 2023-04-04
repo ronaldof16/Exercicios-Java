@@ -3,14 +3,19 @@ package exercicio05;
 public class ContaBancaria {
 
 	private String nome;
-	private static int conta;
-	private double depositoInicial, saldo;
-	private static double taxa = 5.00;
+	private int conta;
+	private double saldo;
+	
 	
 	public ContaBancaria(String nome, int conta, double depositoInicial) {
 		this.nome = nome;
-		ContaBancaria.conta = conta;
-		this.depositoInicial = depositoInicial;
+		this.conta = conta;
+		depositar(depositoInicial);
+	}
+	
+	public ContaBancaria(String nome, int conta) {
+		this.nome = nome;
+		this.conta = conta;
 	}
 	
 	public String getNome() {
@@ -25,26 +30,20 @@ public class ContaBancaria {
 		return conta;
 	}
 	
-	public void setConta(int conta) {
-		this.conta = conta;
-	}
-	
-	public double getDepositoInicial() {
-		return depositoInicial;
-	}
-	
-	public void setDepositoInicial(double depositoInicial) {
-		this.depositoInicial = depositoInicial;
-	}
-	
-	public double sacar(double valorSaque) {
-		saldo = depositoInicial - (valorSaque + taxa);
+	public double getSaldo( ) {
 		return saldo;
 	}
 	
-	public double depositar(double valorDeposito) {
-		saldo = depositoInicial + valorDeposito;
-		return saldo;
+	public void sacar(double valorSaque) {
+		saldo -= (valorSaque + 5.00);	
+	}
+	
+	public void depositar(double valorDeposito) {
+		saldo += valorDeposito;
+	}
+	
+	public String toString() {
+		return "Conta " + conta + ", Titular: " + nome + ", saldo: " + saldo;
 	}
 	
 	
