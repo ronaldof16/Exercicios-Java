@@ -12,6 +12,31 @@ public class ContaCorrente {
 		this.saldo = saldo;	
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public int getConta() {
+		return conta;
+	}
+	
+	public void setConta(int conta) {
+		this.conta = conta;
+	}
+	
+	public float getSaldo() {
+		return saldo;
+	}
+	
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
+	}
+	
+	
 	public void deposito(float valorDeposito) {
 		saldo += valorDeposito;
 		
