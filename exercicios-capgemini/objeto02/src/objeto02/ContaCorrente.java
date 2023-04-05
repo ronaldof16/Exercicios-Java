@@ -13,12 +13,12 @@ public class ContaCorrente {
 	}
 	
 	public void deposito(float valorDeposito) {
-		saldo = saldo + valorDeposito;
-		return saldo;
+		saldo += valorDeposito;
+		
 	}
 	
 	public void saque(float valorSaque) {
-		return saldo + valorSaque;
+		saldo -= valorSaque;
 	}
 	
 	
