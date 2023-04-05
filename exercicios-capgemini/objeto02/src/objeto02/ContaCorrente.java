@@ -32,17 +32,12 @@ public class ContaCorrente {
 		return saldo;
 	}
 	
-	public void setSaldo(float saldo) {
-		this.saldo = saldo;
-	}
-	
-	
-	public void deposito(float valorDeposito) {
+	public void depositar(float valorDeposito) {
 		saldo += valorDeposito;
 		
 	}
 	
-	public void saque(float valorSaque) {
+	public void sacar(float valorSaque) {
 		saldo -= valorSaque;
 	}
 	
