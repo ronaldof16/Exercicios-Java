@@ -4,19 +4,13 @@ public class Elevador {
 	
 	private int andarAtual, totalAndares, capacidade, pessoasNoElevador;
 	
-	public Elevador(int andarAtual, int totalAndares, int capacidade, int pessoasNoElevador) {
-		this.andarAtual = andarAtual;
-		this.totalAndares = totalAndares;
+	public Elevador(int capacidade, int totalAndares) {
 		this.capacidade = capacidade;
-		this.pessoasNoElevador = pessoasNoElevador;
+		this.totalAndares = totalAndares;
 	}
 
 	public int getAndarAtual() {
 		return andarAtual;
-	}
-
-	public void setAndarAtual(int andarAtual) {
-		this.andarAtual = andarAtual;
 	}
 
 	public int getTotalAndares() {
@@ -38,11 +32,39 @@ public class Elevador {
 	public int getPessoasNoElevador() {
 		return pessoasNoElevador;
 	}
-
-	public void setPessoasNoElevador(int pessoasNoElevador) {
-		this.pessoasNoElevador = pessoasNoElevador;
+	
+	public void entrar() {
+		if(pessoasNoElevador < capacidade) {
+			pessoasNoElevador += 1;
+		} else {
+			System.out.println("O elevador já está lotado!");
+		}
+		
 	}
 	
+	public void sair() {
+		if(pessoasNoElevador > 0) {
+			pessoasNoElevador -= 1;
+		} else {
+			System.out.println("O elevador está vazio!");
+		}
+		
+	}
 	
+	public void subir() {
+		if(andarAtual < totalAndares) {
+			andarAtual += 1;
+		} else {
+			System.out.println("O elevador já está no último andar!");
+		}
+	}
+	
+	public void descer() {
+		if(andarAtual > 0) {
+			andarAtual -= 1;
+		} else {
+			System.out.println("O elevador está no térreo!");
+		}
+	}
 	
 }
