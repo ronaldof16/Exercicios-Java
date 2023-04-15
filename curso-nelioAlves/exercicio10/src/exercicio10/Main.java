@@ -28,7 +28,7 @@ public class Main {
 		
 		System.out.println();
 		System.out.println("MAIOR VALOR = " + maior);
-		System.out.println("POSICAO DO MAIOR VALOR =" + posicaoMaior);
+		System.out.println("POSICAO DO MAIOR VALOR = " + posicaoMaior);
 		
 		
 		scan.close();
