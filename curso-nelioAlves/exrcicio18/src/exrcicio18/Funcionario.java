@@ -35,9 +35,12 @@ public class Funcionario {
 		return salario;
 	}
 
-	public void setSalario(Double porcentagem) {
-		Double aumento = porcentagem * salario / 100;
-		salario += aumento;
+	public void setSalario(Double salario) {
+		this.salario = salario;
+	}
+	
+	public void aumentarSalario(double porcentagem) {
+		salario += salario * porcentagem / 100.0;
 	}
 	
 	public String toString() {
