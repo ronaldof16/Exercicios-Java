@@ -69,8 +69,7 @@ public class Main {
 	}
 
 	private static boolean hasId(List<Funcionario> lista, int id) {
-		Funcionario func = lista.stream().filter(x -> x.getId() == id).findFirst().orElse(null);
-		return func != null;
+		return false;
 	}
 
 }
