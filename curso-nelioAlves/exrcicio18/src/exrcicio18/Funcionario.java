@@ -44,7 +44,7 @@ public class Funcionario {
 	}
 	
 	public String toString() {
-		return id + ", " + nome + ", " + salario;
+		return id + ", " + nome + ", " + String.format("%.2f", salario);
 	}
 	
 	

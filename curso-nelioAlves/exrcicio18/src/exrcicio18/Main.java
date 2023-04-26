@@ -37,7 +37,8 @@ public class Main {
 			lista.add(func);
 		}
 		
-		System.out.println("Digite o id do funcionário que vai receber aumento no salário: ");
+		System.out.println();
+		System.out.print("Digite o id do funcionário que vai receber aumento no salário: ");
 		int idSalario = scan.nextInt();
 		Integer pos = posicao(lista, idSalario);
 		if(pos == null) {
@@ -48,7 +49,11 @@ public class Main {
 			lista.get(pos).aumentarSalario(porcentagem);
 		}
 		
-		System.out.println(lista);
+		System.out.println();
+		System.out.println("Lista dos funcionários:");
+		for(Funcionario x : lista) {
+			System.out.println(x);
+		}
 		
 		
 		scan.close();
