@@ -32,13 +32,35 @@ public class Main {
 			String nome = scan.nextLine();
 			System.out.print("Salário: ");
 			double salario = scan.nextDouble();
-			lista.add(new Funcionario(id, nome, salario));
+			
+			Funcionario func = new Funcionario(id, nome, salario);
+			lista.add(func);
+		}
+		
+		System.out.println("Digite o id do funcionário que vai receber aumento no salário: ");
+		int idSalario = scan.nextInt();
+		Integer pos = posicao(lista, idSalario);
+		if(pos == null) {
+			System.out.println("Este ID não existe!");
+		} else {
+			System.out.print("Digite a porcentagem do aumento: ");
+			double porcentagem = scan.nextDouble();
+			lista.get(pos).aumentarSalario(porcentagem);
 		}
 		
 		System.out.println(lista);
 		
 		
 		scan.close();
+	}
+	
+	public static Integer posicao(List<Funcionario> list, int id) {
+		for (int i = 0; i < list.size(); i++) {
+			if(list.get(i).getId() == id) {
+				return i;
+				}
+			}
+		return null;
 	}
 
 	private static boolean hasId(List<Funcionario> lista, int id) {
