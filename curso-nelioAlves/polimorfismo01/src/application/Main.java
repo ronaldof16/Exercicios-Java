@@ -21,7 +21,7 @@ public class Main {
 		int n = scan.nextInt();
 		
 		for(int i = 0; i < n; i++) {
-			System.out.println("Employee #" + i + 1 + " data:");
+			System.out.println("Employee #" + (i + 1) + " data:");
 			System.out.print("Outsourced (y/n)?");
 			char out = scan.next().charAt(0);
 			System.out.print("Name: ");
@@ -40,9 +40,14 @@ public class Main {
 			} else if(out == 'n') {
 				Employee emp2 = new Employee(name, hours, valuePerHour);
 				list.add(emp2);
-			}
-			
-			
+			}	
+		}
+		
+		System.out.println();
+		System.out.println("PAYMENTS:");
+		
+		for(Employee x : list) {
+			System.out.println(x.getName() + " - $ " + String.format("%.2f", x.payment()));
 		}
 		
 		scan.close();
