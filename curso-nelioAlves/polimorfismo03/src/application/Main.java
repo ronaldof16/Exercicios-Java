@@ -48,7 +48,11 @@ public class Main {
 			}
 		}
 		
-		
+		System.out.println();
+		System.out.println("PRICE TAGS: ");
+		for(Product x : list) {
+			System.out.println(x.priceTag());
+		}
 		
 		
 		scan.close();
