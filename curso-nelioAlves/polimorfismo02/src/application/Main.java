@@ -39,8 +39,19 @@ public class Main {
 				list.add(new PessoaJuridica(name, anualIncome, employees));
 			}
 			
-			
 		}
+			
+			System.out.println();
+			System.out.println("TAXES PAID:");
+			
+			double sum = 0;
+			for(Pessoa x : list) {
+				sum += x.taxesPaid();
+				System.out.println(x.getName() + " $ " + String.format("%.2f", x.taxesPaid()));
+			}
+			
+			System.out.println();
+			System.out.println("TOTAL TAXES: $ " + String.format("%.2f", sum));
 		
 		
 		scan.close();
