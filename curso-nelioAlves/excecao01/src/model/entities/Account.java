@@ -49,6 +49,22 @@ public class Account {
 		this.withdrawLimit = withdrawLimit;
 	}
 	
+	public void deposit(Double amount) {
+		balance += amount;
+	}
+	
+	public void withdraw(Double amount) {
+		if(amount > withdrawLimit) {
+			System.out.println("Withdraw error: The amount exceeds withdraw limit");
+		} else if(balance == 0) {
+			System.out.println("Sua conta está sem saldo!");
+		} else if(amount > balance) {
+			System.out.println("Withdraw error: Not enough balance");
+		} else {
+			balance -= amount;
+			System.out.println("New balance: " + balance);
+		}
+	}
 	
 	
 }
