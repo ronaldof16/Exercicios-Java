@@ -5,6 +5,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.entities.Account;
+import model.exceptions.BusinessException;
 
 public class Main {
 
@@ -30,13 +31,13 @@ public class Main {
 		System.out.println();
 		System.out.print("Enter amount for withdraw: ");
 		double amount = scan.nextDouble();
-		String error = account.validateWithdraw(amount);
 		
-		if(error != null) {
-			System.out.println(error);
-		} else {
+		try {
 			account.withdraw(amount);
 			System.out.println("New Balance: " + String.format("%.2f", account.getBalance()));
+		}
+		catch(BusinessException e) {
+			System.out.println(e.getMessage());
 		}
 		
 		
