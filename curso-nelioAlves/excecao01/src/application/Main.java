@@ -1,5 +1,6 @@
 package application;
 
+import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -11,6 +12,7 @@ public class Main {
 		
 		Locale.setDefault(Locale.US);
 		Scanner scan = new Scanner(System.in);
+		
 		
 		System.out.println("Enter account data");
 		System.out.print("Number: ");
@@ -25,12 +27,21 @@ public class Main {
 		
 		Account account = new Account(number, holder, initialBalance, withdrawLimit);
 		
+		System.out.println();
 		System.out.print("Enter amount for withdraw: ");
-		Double amount = scan.nextDouble();
-		account.withdraw(amount);
-		//System.out.println(account.getBalance());
+		double amount = scan.nextDouble();
+		String error = account.validateWithdraw(amount);
+		
+		if(error != null) {
+			System.out.println(error);
+		} else {
+			account.withdraw(amount);
+			System.out.println("New Balance: " + String.format("%.2f", account.getBalance()));
+		}
+		
 		
 		scan.close();
+		
 	}
 
 }
